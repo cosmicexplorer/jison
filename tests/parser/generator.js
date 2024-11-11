@@ -161,6 +161,10 @@ exports["test module include"] = function () {
         "rules": [
             ["\\s+", "/* skip whitespace */"],
             ["-?{digit}+(\\.{digit}+)?{exp}?", "return 'NUMBER';"],
+            // FIXME: make this close with a () after the function()??? No clue how to do that atm,
+            //        and this test has been broken for a while according to bisect. giving it
+            //        a name still fails, producing an invalid statement (check `function
+            //        RegExpLexer` in regexp-lexer.js).
             ["\"[^\"]*", function(){
                 if(yytext.charAt(yyleng-1) == '\\') {
                     // remove escape
