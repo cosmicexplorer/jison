@@ -1,0 +1,27 @@
+#+TITLE: "mixins", MDN, and mozilla
+#+STARTUP: showall
+
+https://developer.mozilla.org/en-US/docs/Glossary/Mixin
+
+#+BEGIN_QUOTE
+A mixin is a class (interface, in WebAPI spec terms) in which some or all of its methods and/or properties are unimplemented, requiring that another class or interface provide the missing implementations.
+#+END_QUOTE
+
+you mean like these docs here??? MDN
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes#using_a_constructor
+#+BEGIN_SRC js
+const personPrototype = {
+  greet() {
+    console.log(`hello, my name is ${this.name}!`);
+  },
+};
+
+function Person(name) {
+  this.name = name;
+}
+
+Object.assign(Person.prototype, personPrototype);
+// or
+// Person.prototype.greet = personPrototype.greet;
+#+END_SRC
